@@ -1,0 +1,285 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "0"
+    deployment.kubernetes.io/max-replicas: "0"
+    deployment.kubernetes.io/revision: "1"
+    openshiftapiservers.operator.openshift.io/operator-pull-spec: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:899a9cfeaaab42aba1a8ebb8419e564acc23e0c0a9fcfd27e6eb1a1f5f24707e
+    openshiftapiservers.operator.openshift.io/pull-spec: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c3baccb21a6993bf8d88083eb3848731c72d97eeec267f07ed7e52d38538882c
+    operator.openshift.io/dep-desired.generation: "2"
+    operator.openshift.io/dep-openshift-apiserver.config.configmap: WjCwLA==
+    operator.openshift.io/dep-openshift-apiserver.etcd-client.secret: 6x1v-w==
+    operator.openshift.io/dep-openshift-apiserver.etcd-serving-ca.configmap: IVDycQ==
+    operator.openshift.io/dep-openshift-apiserver.image-import-ca.configmap: OUXnWA==
+    operator.openshift.io/dep-openshift-apiserver.trusted-ca-bundle.configmap: nBi70g==
+    operator.openshift.io/spec-hash: caed81b9b7c6c5f021113eeb31223255d0e7f06e04709920764c60d497298216
+  creationTimestamp: "2023-11-28T14:54:30Z"
+  generation: 1
+  labels:
+    apiserver: "true"
+    app: openshift-apiserver-a
+    openshift-apiserver-anti-affinity: "true"
+    pod-template-hash: 577b7cd6b7
+    revision: "2"
+  name: apiserver-577b7cd6b7
+  namespace: openshift-apiserver
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: apiserver
+    uid: ba4e4d4e-abed-45d1-a7bf-296f18ed738a
+  resourceVersion: "292689"
+  uid: 718f5776-d4c3-4a31-bfa9-7ad964db2999
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      apiserver: "true"
+      app: openshift-apiserver-a
+      pod-template-hash: 577b7cd6b7
+  template:
+    metadata:
+      annotations:
+        openshift.io/required-scc: privileged
+        operator.openshift.io/dep-desired.generation: "2"
+        operator.openshift.io/dep-openshift-apiserver.config.configmap: WjCwLA==
+        operator.openshift.io/dep-openshift-apiserver.etcd-client.secret: 6x1v-w==
+        operator.openshift.io/dep-openshift-apiserver.etcd-serving-ca.configmap: IVDycQ==
+        operator.openshift.io/dep-openshift-apiserver.image-import-ca.configmap: OUXnWA==
+        operator.openshift.io/dep-openshift-apiserver.trusted-ca-bundle.configmap: nBi70g==
+        target.workload.openshift.io/management: '{"effect": "PreferredDuringScheduling"}'
+      creationTimestamp: null
+      labels:
+        apiserver: "true"
+        app: openshift-apiserver-a
+        openshift-apiserver-anti-affinity: "true"
+        pod-template-hash: 577b7cd6b7
+        revision: "2"
+      name: openshift-apiserver
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                apiserver: "true"
+                app: openshift-apiserver-a
+                openshift-apiserver-anti-affinity: "true"
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - args:
+        - |
+          if [ -s /var/run/configmaps/trusted-ca-bundle/tls-ca-bundle.pem ]; then
+            echo "Copying system trust bundle"
+            cp -f /var/run/configmaps/trusted-ca-bundle/tls-ca-bundle.pem /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+          fi
+          exec openshift-apiserver start --config=/var/run/configmaps/config/config.yaml -v=2
+        command:
+        - /bin/bash
+        - -ec
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c3baccb21a6993bf8d88083eb3848731c72d97eeec267f07ed7e52d38538882c
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: healthz
+            port: 8443
+            scheme: HTTPS
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        name: openshift-apiserver
+        ports:
+        - containerPort: 8443
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: readyz
+            port: 8443
+            scheme: HTTPS
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        securityContext:
+          privileged: true
+          readOnlyRootFilesystem: false
+          runAsUser: 0
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: healthz
+            port: 8443
+            scheme: HTTPS
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 10
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /var/lib/kubelet/
+          name: node-pullsecrets
+          readOnly: true
+        - mountPath: /var/run/configmaps/config
+          name: config
+        - mountPath: /var/run/configmaps/audit
+          name: audit
+        - mountPath: /var/run/secrets/etcd-client
+          name: etcd-client
+        - mountPath: /var/run/configmaps/etcd-serving-ca
+          name: etcd-serving-ca
+        - mountPath: /var/run/configmaps/image-import-ca
+          name: image-import-ca
+        - mountPath: /var/run/configmaps/trusted-ca-bundle
+          name: trusted-ca-bundle
+        - mountPath: /var/run/secrets/serving-cert
+          name: serving-cert
+        - mountPath: /var/run/secrets/encryption-config
+          name: encryption-config
+        - mountPath: /var/log/openshift-apiserver
+          name: audit-dir
+      - args:
+        - --listen
+        - 0.0.0.0:17698
+        - --namespace
+        - $(POD_NAMESPACE)
+        - --v
+        - "2"
+        command:
+        - cluster-kube-apiserver-operator
+        - check-endpoints
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9f8f8507b2b6e627f8783b197ef89ad6ef3a4decf42f6f89926bf04d38c3937d
+        imagePullPolicy: IfNotPresent
+        name: openshift-apiserver-check-endpoints
+        ports:
+        - containerPort: 17698
+          name: check-endpoints
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - chmod 0700 /var/log/openshift-apiserver && touch /var/log/openshift-apiserver/audit.log
+          && chmod 0600 /var/log/openshift-apiserver/*
+        image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c3baccb21a6993bf8d88083eb3848731c72d97eeec267f07ed7e52d38538882c
+        imagePullPolicy: IfNotPresent
+        name: fix-audit-permissions
+        resources:
+          requests:
+            cpu: 15m
+            memory: 50Mi
+        securityContext:
+          privileged: true
+          runAsUser: 0
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /var/log/openshift-apiserver
+          name: audit-dir
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      priorityClassName: system-node-critical
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: openshift-apiserver-sa
+      serviceAccountName: openshift-apiserver-sa
+      terminationGracePeriodSeconds: 90
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoExecute
+        key: node.kubernetes.io/unreachable
+        operator: Exists
+        tolerationSeconds: 120
+      - effect: NoExecute
+        key: node.kubernetes.io/not-ready
+        operator: Exists
+        tolerationSeconds: 120
+      volumes:
+      - hostPath:
+          path: /var/lib/kubelet/
+          type: Directory
+        name: node-pullsecrets
+      - configMap:
+          defaultMode: 420
+          name: config
+        name: config
+      - configMap:
+          defaultMode: 420
+          name: audit-2
+        name: audit
+      - name: etcd-client
+        secret:
+          defaultMode: 384
+          secretName: etcd-client
+      - configMap:
+          defaultMode: 420
+          name: etcd-serving-ca
+        name: etcd-serving-ca
+      - configMap:
+          defaultMode: 420
+          name: image-import-ca
+          optional: true
+        name: image-import-ca
+      - name: serving-cert
+        secret:
+          defaultMode: 384
+          secretName: serving-cert
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: ca-bundle.crt
+            path: tls-ca-bundle.pem
+          name: trusted-ca-bundle
+          optional: true
+        name: trusted-ca-bundle
+      - name: encryption-config
+        secret:
+          defaultMode: 384
+          optional: true
+          secretName: encryption-config-2
+      - hostPath:
+          path: /var/log/openshift-apiserver
+          type: ""
+        name: audit-dir
+status:
+  observedGeneration: 1
+  replicas: 0
