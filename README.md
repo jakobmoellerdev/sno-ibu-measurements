@@ -57,6 +57,15 @@ and providing the next optimization point.
 * installation-configuration.service and ovs-configuration.service are both started 20 seconds after user core is loaded. It should be investigated if this can be sped up.
 * A dependency of installation-configuration.service to NetworkManager-wait-online.service should be avoided at all costs as it increases the critical path by about a minute.
 
+### Observations related to recert
+
+When looking at the recert process, we can see that the following optimizations might help reduce timings:
+
+So to summarize recert-related findings from your analysis:
+* One might want to precalculate RSA keys for recert, or run recert during SNOA, to avoid the 40-60 seconds penalty we have for recert
+* One should use recert to re-sign the kubelet certs and change their hostname, to avoid CSR approval phase
+* One should use recert to calculate and edit the annotation hashes we discovered in the [API Server Replica Set Revision](./apiserver-revisions) as this currently leads to extra restarts.
+
 ## API Server Availability Analysis
 
 To measure the API Server availability, I used [fastsno](https://github.com/omertuc/fastsno/tree/main) which was originally used for installation measurements.
