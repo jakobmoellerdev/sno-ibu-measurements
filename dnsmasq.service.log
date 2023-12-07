@@ -1,44 +1,30 @@
-Nov 28 14:51:05 snonode.sno-worker-00.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: start-pre operation timed out. Terminating.
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Control process exited, code=killed, status=15/TERM
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Failed with result 'timeout'.
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Failed to start Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Scheduled restart job, restart counter is at 1.
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Stopped Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:51:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: start-pre operation timed out. Terminating.
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Control process exited, code=killed, status=15/TERM
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Failed with result 'timeout'.
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Failed to start Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Scheduled restart job, restart counter is at 2.
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Stopped Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
-Nov 28 14:52:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: start-pre operation timed out. Terminating.
-Nov 28 14:52:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Control process exited, code=killed, status=15/TERM
-Nov 28 14:52:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Failed with result 'timeout'.
-Nov 28 14:52:35 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Failed to start Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:52:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Scheduled restart job, restart counter is at 3.
-Nov 28 14:52:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Stopped Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:52:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: start-pre operation timed out. Terminating.
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Control process exited, code=killed, status=15/TERM
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Failed with result 'timeout'.
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Failed to start Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Scheduled restart job, restart counter is at 4.
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Stopped Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:53:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
-Nov 28 14:53:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: start-pre operation timed out. Terminating.
-Nov 28 14:53:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Control process exited, code=killed, status=15/TERM
-Nov 28 14:53:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Failed with result 'timeout'.
-Nov 28 14:53:36 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Failed to start Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:53:37 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: dnsmasq.service: Scheduled restart job, restart counter is at 5.
-Nov 28 14:53:37 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Stopped Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Started Run dnsmasq to provide local dns for Single Node OpenShift.
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: started, version 2.85 cachesize 150
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: compile time options: IPv6 GNU-getopt DBus no-UBus no-i18n IDN2 DHCP DHCPv6 no-Lua TFTP no-conntrack ipset auth cryptohash DNSSEC loop-detect inotify dumpfile
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: reading /etc/resolv.conf
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: using nameserver 10.19.32.199#53
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: using nameserver 10.11.5.160#53
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: using nameserver 10.2.70.215#53
-Nov 28 14:54:06 snonode.sno-worker-02.e2e.bos.redhat.com dnsmasq[17636]: read /etc/hosts - 2 addresses
+Dec 07 18:53:51 snonode.sno-worker-00.e2e.bos.redhat.com systemd[1]: Starting Run dnsmasq to provide local dns for Single Node OpenShift...
+Dec 07 18:53:51 snonode.sno-worker-00.e2e.bos.redhat.com systemd[1]: Started Run dnsmasq to provide local dns for Single Node OpenShift.
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: started, version 2.85 cachesize 150
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: compile time options: IPv6 GNU-getopt DBus no-UBus no-i18n IDN2 DHCP DHCPv6 no-Lua TFTP no-conntrack ipset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.32.199#53
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: read /etc/hosts - 2 addresses
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:53:52 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:54:54 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: no servers found in /etc/resolv.conf, will retry
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:54:56 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:54:56 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:54:56 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53
+Dec 07 18:54:56 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: reading /etc/resolv.conf
+Dec 07 18:54:56 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: ignoring nameserver 10.19.32.199 - local interface
+Dec 07 18:54:56 snonode.sno-worker-00.e2e.bos.redhat.com dnsmasq[3499]: using nameserver 10.19.143.247#53

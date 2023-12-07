@@ -1,19 +1,15 @@
 The time when unit became active or started is printed after the "@" character.
 The time the unit took to start is printed after the "+" character.
 
-graphical.target @4min 19.061s
-└─multi-user.target @4min 19.050s
-  └─kubelet.service @3min 8.353s +302ms
-    └─crio.service @3min 7.560s +737ms
-      └─dnsmasq.service @3min 7.482s +32ms
-        └─network.target @6.456s
-          └─NetworkManager.service @6.391s +63ms
-            └─openvswitch.service @6.381s +2ms
-              └─ovs-vswitchd.service @5.976s +401ms
-                └─ovs-delete-transient-ports.service @5.221s +749ms
-                  └─ovsdb-server.service @4.407s +809ms
-                    └─network-pre.target @4.354s
-                      └─systemd-network-generator.service @1.426s +186ms
-                        └─systemd-journald.socket
-                          └─system.slice
-                            └─-.slice
+graphical.target @3min 29.071s
+└─multi-user.target @3min 29.068s
+  └─kubelet.service @3min 9.080s +332ms
+    └─crio.service @3min 8.379s +685ms
+      └─container-mount-namespace.service @2min 12.402s +391ms
+        └─run-container\x2dmount\x2dnamespace.mount @2min 12.665s
+          └─local-fs-pre.target @3.798s
+            └─systemd-tmpfiles-setup-dev.service @1.625s +67ms
+              └─kmod-static-nodes.service @1.201s +314ms
+                └─systemd-journald.socket
+                  └─system.slice
+                    └─-.slice

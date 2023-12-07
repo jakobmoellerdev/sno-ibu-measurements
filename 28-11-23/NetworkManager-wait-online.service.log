@@ -1,0 +1,6 @@
+Nov 28 14:51:05 snonode.sno-worker-00.e2e.bos.redhat.com systemd[1]: Starting Network Manager Wait Online...
+Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: NetworkManager-wait-online.service: Main process exited, code=exited, status=1/FAILURE
+Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: NetworkManager-wait-online.service: Failed with result 'exit-code'.
+Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Failed to start Network Manager Wait Online.
+Nov 28 14:53:10 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Network Manager Wait Online...
+Nov 28 14:54:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Finished Network Manager Wait Online.

@@ -1,48 +1,47 @@
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Image base SNO configuration script...
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]:  ___ ____  _   _            ___
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: |_ _| __ )| | | |          |_ _|_ __ ___   __ _  __ _  ___ _ __
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]:  | ||  _ \| | | |   _____   | ||  _   _ \ / _  |/ _  |/ _ \ '__|
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]:  | || |_) | |_| |  |_____|  | || | | | | | (_| | (_| |  __/ |
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: |___|____/ \___/           |___|_| |_| |_|\__,_|\__, |\___|_|
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]:                                                 |___/
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]:  A tool to assist in building OCI seed images for Image Based Upgrades (IBU)
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]:         
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Post pivot operation has started"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Reading cluster info"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Reading seed info"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Create recert configuration file"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Getting image from /etc/kubernetes/manifests/etcd-pod.yaml static pod file"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Run unauthenticated etcd server for recert tool"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Executing podman with args [run --rm --network=host --privileged --replace --authfile /var/lib/kubelet/config.json --detach --name recert_etcd --entrypoint etcd -v /var/lib/etcd:/store quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:24d1d65ef060fb76b79b7c3b0a577f5d1a1d4b9a6a475c274576a89fbf6f69fb --name editor --data-dir /store]"
-Nov 28 14:52:05 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:05" level=info msg="Waiting for unauthenticated etcd start serving for recert tool"
-Nov 28 14:52:08 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:08" level=info msg="Unauthenticated etcd server for recert is up and running"
-Nov 28 14:52:08 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:08" level=info msg="Executing podman with args [exec -it recert_etcd bash -c /usr/bin/etcdctl member list | cut -d',' -f1 | xargs -i etcdctl member update \"{}\" --peer-urls=http://[10.19.32.201]:2380]"
-Nov 28 14:52:08 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:08" level=info msg="Executing podman with args [exec -it recert_etcd bash -c /usr/bin/etcdctl del /kubernetes.io/configmaps/openshift-etcd/etcd-endpoints]"
-Nov 28 14:52:08 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:08" level=info msg="Executing bash with args [-c find /etc/kubernetes/ -type f -print0 | xargs -0 sed -i \"s/10.19.32.199/10.19.32.201/g\"]"
-Nov 28 14:52:08 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:52:08" level=info msg="Executing podman with args [run --rm --network=host --privileged --replace --name recert -v /etc:/host-etc -v /etc/kubernetes:/kubernetes -v /var/lib/kubelet:/kubelet -v /var/tmp:/var/tmp -v /etc/machine-config-daemon:/machine-config-daemon -e RECERT_CONFIG=/opt/openshift/recert_config.json --authfile /var/lib/kubelet/config.json -v /opt/openshift:/opt/openshift quay.io/edge-infrastructure/recert:latest]"
-Nov 28 14:53:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:53:09" level=info msg="Killing the unauthenticated etcd server"
-Nov 28 14:53:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:53:09" level=info msg="Executing podman with args [kill recert_etcd]"
-Nov 28 14:53:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:53:09" level=info msg="Executing podman with args [rm recert_etcd]"
-Nov 28 14:53:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:53:09" level=error msg="failed to rm recert_etcd container." error="Error: container d4fbd13de094408df0d894e184ba70825b1ccf015aa93d0f5bdbea9209c2cdcb does not exist in database: no such container\n: exit status 1"
-Nov 28 14:53:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:53:09" level=info msg="Running systemctl enable [kubelet --now]"
-Nov 28 14:53:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:53:09" level=info msg="Executing systemctl with args [enable kubelet --now]"
-Nov 28 14:54:07 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:07" level=info msg="Start waiting for api"
-Nov 28 14:54:07 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:07" level=info msg="waiting for api"
-Nov 28 14:54:07 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:07" level=info msg="waiting for api"
-Nov 28 14:54:08 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:08" level=info msg="waiting for api"
-Nov 28 14:54:09 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:09" level=info msg="waiting for api"
-Nov 28 14:54:10 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:10" level=info msg="waiting for api"
-Nov 28 14:54:20 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:20" level=info msg="waiting for api"
-Nov 28 14:54:25 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:25" level=info msg="waiting to approve kube-apiserver-client-kubelet csr"
-Nov 28 14:54:25 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:25" level=info msg="Found not approved csr csr-rxdd7 with kube-apiserver-client-kubelet signer name, going to approve it"
-Nov 28 14:54:25 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:25" level=info msg="csr csr-rxdd7 with kube-apiserver-client-kubelet signer name, was approved"
-Nov 28 14:54:25 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:54:25" level=info msg="waiting to approve kubelet-serving csr"
-Nov 28 14:55:15 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:15" level=info msg="Found not approved csr csr-2gkcf with kubelet-serving signer name, going to approve it"
-Nov 28 14:55:15 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:15" level=info msg="csr csr-2gkcf with kubelet-serving signer name, was approved"
-Nov 28 14:55:15 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:15" level=info msg="Applying manifests from /opt/openshift/cluster-configuration/manifests"
-Nov 28 14:55:15 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:15" level=info msg="Executing oc with args [--kubeconfig /etc/kubernetes/static-pod-resources/kube-apiserver-certs/secrets/node-kubeconfigs/lb-ext.kubeconfig apply -f /opt/openshift/cluster-configuration/manifests]"
-Nov 28 14:55:17 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:17" level=info msg="Running systemctl disable [installation-configuration.service]"
-Nov 28 14:55:17 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:17" level=info msg="Executing systemctl with args [disable installation-configuration.service]"
-Nov 28 14:55:17 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:17" level=info msg="Removing /opt/openshift"
-Nov 28 14:55:17 snonode.sno-worker-02.e2e.bos.redhat.com ibu-imager[4330]: time="2023-11-28 14:55:17" level=info msg="Post pivot operation finished successfully!"
-Nov 28 14:55:17 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Finished Image base SNO configuration script.
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com systemd[1]: Starting Image base SNO configuration script...
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]:  ___ ____  _   _            ___
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: |_ _| __ )| | | |          |_ _|_ __ ___   __ _  __ _  ___ _ __
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]:  | ||  _ \| | | |   _____   | ||  _   _ \ / _  |/ _  |/ _ \ '__|
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]:  | || |_) | |_| |  |_____|  | || | | | | | (_| | (_| |  __/ |
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: |___|____/ \___/           |___|_| |_| |_|\__,_|\__, |\___|_|
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]:                                                 |___/
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]:  A tool to assist in building OCI seed images for Image Based Upgrades (IBU)
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]:         
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Post pivot operation has started"
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Reading cluster info"
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Reading seed info"
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Create recert configuration file"
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Getting image from /etc/kubernetes/manifests/etcd-pod.yaml static pod file"
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Run unauthenticated etcd server for recert tool"
+Dec 07 18:54:51 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:51" level=info msg="Executing podman with args [run --rm --network=host --privileged --replace --authfile /var/lib/kubelet/config.json --detach --name recert_etcd --entrypoint etcd -v /var/lib/etcd:/store quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:24d1d65ef060fb76b79b7c3b0a577f5d1a1d4b9a6a475c274576a89fbf6f69fb --name editor --data-dir /store]"
+Dec 07 18:54:52 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:52" level=info msg="Waiting for unauthenticated etcd start serving for recert tool"
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:55" level=info msg="Unauthenticated etcd server for recert is up and running"
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:55" level=info msg="Start running etcd post pivot operations"
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:55" level=info msg="Deleting /kubernetes.io/configmaps/openshift-etcd/etcd-endpoints key in etcd"
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:55" level=info msg="Executing bash with args [-c find /etc/kubernetes/ -type f -print0 | xargs -0 sed -i \"s/10.19.32.199/10.19.32.199/g\"]"
+Dec 07 18:54:55 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:54:55" level=info msg="Executing podman with args [run --rm --network=host --privileged --replace --name recert -v /etc:/host-etc -v /etc/kubernetes:/kubernetes -v /var/lib/kubelet:/kubelet -v /var/tmp:/var/tmp -v /etc/machine-config-daemon:/machine-config-daemon -e RECERT_CONFIG=/opt/openshift/recert_config.json --authfile /var/lib/kubelet/config.json -v /opt/openshift:/opt/openshift quay.io/edge-infrastructure/recert:latest]"
+Dec 07 18:55:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:55:56" level=info msg="Killing the unauthenticated etcd server"
+Dec 07 18:55:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:55:56" level=info msg="Executing podman with args [kill recert_etcd]"
+Dec 07 18:55:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:55:56" level=info msg="Executing podman with args [rm recert_etcd]"
+Dec 07 18:55:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:55:56" level=error msg="failed to rm recert_etcd container." error="Error: container 2203c7b97e392bdbf95b9b732027dec21c5915d21b7298ce84241b4256242640 does not exist in database: no such container\n: exit status 1"
+Dec 07 18:55:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:55:56" level=info msg="Running systemctl enable [kubelet --now]"
+Dec 07 18:55:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:55:56" level=info msg="Executing systemctl with args [enable kubelet --now]"
+Dec 07 18:56:54 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:56:54" level=info msg="Start waiting for api"
+Dec 07 18:56:54 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:56:54" level=info msg="waiting for api"
+Dec 07 18:56:54 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:56:54" level=info msg="waiting for api"
+Dec 07 18:56:55 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:56:55" level=info msg="waiting for api"
+Dec 07 18:56:56 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:56:56" level=info msg="waiting for api"
+Dec 07 18:57:06 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:06" level=info msg="waiting for api"
+Dec 07 18:57:11 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:11" level=info msg="Deleting ImageContentSourcePolicy and ImageDigestMirrorSet if they exist"
+Dec 07 18:57:11 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:11" level=info msg="Changing release registry in csv deployment"
+Dec 07 18:57:11 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:11" level=info msg="No registry change occurred, skipping"
+Dec 07 18:57:11 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:11" level=info msg="Deleting default catalog sources"
+Dec 07 18:57:11 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:11" level=info msg="Applying manifests from /opt/openshift/cluster-configuration/manifests"
+Dec 07 18:57:11 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:11" level=info msg="Executing oc with args [--kubeconfig /etc/kubernetes/static-pod-resources/kube-apiserver-certs/secrets/node-kubeconfigs/lb-ext.kubeconfig apply -f /opt/openshift/cluster-configuration/manifests]"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:13" level=info msg="Recovering lvm devices from /opt/openshift/lvm-configuration/system.devices"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:13" level=info msg="Executing pvscan with args [--cache --activate ay]"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:13" level=info msg="Running systemctl disable [installation-configuration.service]"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:13" level=info msg="Executing systemctl with args [disable installation-configuration.service]"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:13" level=info msg="Removing /opt/openshift"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com ibu-imager[3892]: time="2023-12-07 18:57:13" level=info msg="Post pivot operation finished successfully!"
+Dec 07 18:57:13 snonode.sno-worker-00.e2e.bos.redhat.com systemd[1]: Finished Image base SNO configuration script.

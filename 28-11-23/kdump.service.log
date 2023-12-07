@@ -1,0 +1,168 @@
+Nov 28 14:52:15 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Starting Crash recovery kernel arming...
+Nov 28 14:52:15 snonode.sno-worker-02.e2e.bos.redhat.com kdumpctl[5864]: kdump: Detected change(s) in the following file(s):  /etc/kdump.conf /boot/ostree/rhcos-752a3b0ead0e52e830bbd3e504c11b2606df057c884ebbf46dfca691978a83ed/vmlinuz-5.14.0-284.36.1.el9_2.x86_64 /etc/kdump/post.d/ /etc/kdump/pre.d/
+Nov 28 14:52:15 snonode.sno-worker-02.e2e.bos.redhat.com kdumpctl[5864]: kdump: Rebuilding /var/lib/kdump/initramfs-5.14.0-284.36.1.el9_2.x86_64kdump.img
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Executing: /usr/bin/dracut --add kdumpbase --quiet --hostonly --hostonly-cmdline --hostonly-i18n --hostonly-mode strict --hostonly-nics  -o "plymouth resume ifcfg earlykdump" --mount "/dev/disk/by-uuid/ef36c74a-6053-4fb0-977d-69ef3ad07a9d /kdumproot/sy
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: sroot xfs rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,prjquota" --squash-compressor zstd --no-hostonly-default-device --add-drivers nvme -f /var/lib/kdump/initramfs-5.14.0-284.36.1.el9_2.x86_64kdump.img 5.14.0-284.36.1.el9_2.x86_64
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-networkd' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-resolved' will not be installed, because command 'resolvectl' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-resolved' will not be installed, because command '/usr/lib/systemd/systemd-resolved' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-timesyncd' will not be installed, because command '/usr/lib/systemd/systemd-timesyncd' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-timesyncd' will not be installed, because command '/usr/lib/systemd/systemd-time-wait-sync' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'dbus-daemon' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'rngd' will not be installed, because command 'rngd' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'connman' will not be installed, because command 'connmand' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'connman' will not be installed, because command 'connmanctl' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'connman' will not be installed, because command 'connmand-wait-online' could not be found!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'network-legacy' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:17 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'network-wicked' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'ifcfg' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'plymouth' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: 62bluetooth: Could not find any command of '/usr/lib/bluetooth/bluetoothd /usr/libexec/bluetooth/bluetoothd'!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'btrfs' will not be installed, because command 'btrfs' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'dmraid' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'lvm' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'pcsc' will not be installed, because command 'pcscd' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'fcoe' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'fcoe-uefi' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'iscsi' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'nbd' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'nfs' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'resume' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'biosdevname' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'earlykdump' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'memstrack' will not be installed, because it's in the list to be omitted!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-resolved' will not be installed, because command 'resolvectl' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-resolved' will not be installed, because command '/usr/lib/systemd/systemd-resolved' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-timesyncd' will not be installed, because command '/usr/lib/systemd/systemd-timesyncd' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'systemd-timesyncd' will not be installed, because command '/usr/lib/systemd/systemd-time-wait-sync' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'rngd' will not be installed, because command 'rngd' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'connman' will not be installed, because command 'connmand' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'connman' will not be installed, because command 'connmanctl' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'connman' will not be installed, because command 'connmand-wait-online' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: 62bluetooth: Could not find any command of '/usr/lib/bluetooth/bluetoothd /usr/libexec/bluetooth/bluetoothd'!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'btrfs' will not be installed, because command 'btrfs' could not be found!
+Nov 28 14:52:18 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: dracut module 'pcsc' will not be installed, because command 'pcscd' could not be found!
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: bash ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: systemd ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: fips ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: scsi-rules ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: systemd-initrd ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: systemd-sysusers ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: dbus-broker ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: dbus ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-sysctl ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: i18n ***
+Nov 28 14:52:19 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: No KEYMAP configured.
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: ignition-godebug ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: azure-udev-rules ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-need-network-manager ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: afterburn ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: gcp-udev-rules ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: ignition ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-afterburn-checkin ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-nvme-compat-udev ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-ignition ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-live ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-multipath ***
+Nov 28 14:52:20 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-network ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: network-manager ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: ignition-conf ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: ignition-ostree ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: network ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-fde ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-fips ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-check-luks-syntax ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: url-lib ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-kernel ***
+Nov 28 14:52:21 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: drm ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rdcore ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-mke2fs ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rhcos-tuned-bits ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: clevis ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: clevis-pin-null ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: clevis-pin-sss ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: clevis-pin-tang ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: clevis-pin-tpm2 ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: coreos-agetty-workaround ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: crypt ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: dm ***
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Skipping udev rule: 64-device-mapper.rules
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Skipping udev rule: 60-persistent-storage-dm.rules
+Nov 28 14:52:25 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Skipping udev rule: 55-dm.rules
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: kernel-modules ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: kernel-modules-extra ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:   kernel-modules-extra: configuration source "/run/depmod.d" does not exist
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:   kernel-modules-extra: configuration source "/lib/depmod.d" does not exist
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:   kernel-modules-extra: parsing configuration file "/etc/depmod.d/dist.conf"
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:   kernel-modules-extra: /etc/depmod.d/dist.conf: added "updates extra built-in weak-updates" to the list of search directories
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: kernel-network-modules ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: nvdimm ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: qemu ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: fstab-sys ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: rootfs-block ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: terminfo ***
+Nov 28 14:52:26 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: udev-rules ***
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Skipping udev rule: 91-permissions.rules
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Skipping udev rule: 80-drivers-modprobe.rules
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Skipping udev rule: 70-persistent-net.rules
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: walinuxagent ***
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: dracut-systemd ***
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: usrmount ***
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: base ***
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: emergency-shell-setup ***
+Nov 28 14:52:27 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: fs-lib ***
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: journal-conf ***
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: kdumpbase ***
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: microcode_ctl-fw_dir_override ***
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:   microcode_ctl module: mangling fw_dir
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: reset fw_dir to "/lib/firmware/updates /lib/firmware"
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:       microcode_ctl: intel: caveats check for kernel version "5.14.0-284.36.1.el9_2.x86_64" passed, adding "/usr/share/microcode_ctl/ucode_with_caveats/intel" to fw_dir variable
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-2d-07"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-2d-07" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-4e-03"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-4e-03" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-4f-01"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-4f-01" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-55-04"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-55-04" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-5e-03"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-5e-03" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-8c-01"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-8c-01" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-8e-9e-0x-0xca"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-8e-9e-0x-0xca" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-8e-9e-0x-dell"...
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: configuration "intel-06-8e-9e-0x-dell" is ignored
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]:     microcode_ctl: final fw_dir: "/usr/share/microcode_ctl/ucode_with_caveats/intel /lib/firmware/updates /lib/firmware"
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: shutdown ***
+Nov 28 14:52:28 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including module: squash ***
+Nov 28 14:52:29 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Including modules done ***
+Nov 28 14:52:29 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Installing kernel module dependencies ***
+Nov 28 14:52:30 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Installing kernel module dependencies done ***
+Nov 28 14:52:30 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Resolving executable dependencies ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Resolving executable dependencies done ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Hardlinking files ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Mode:           real
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Files:          1500
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Linked:         3 files
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Compared:       0 xattrs
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Compared:       512 files
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Saved:          56.05 KiB
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Duration:       0.045830 seconds
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Hardlinking files done ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Generating early-microcode cpio image ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Constructing GenuineIntel.bin ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Store current command line parameters ***
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: Stored kernel commandline:
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: No dracut internal kernel commandline stored in the initramfs
+Nov 28 14:52:33 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Install squash loader ***
+Nov 28 14:52:34 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Squashing the files inside the initramfs ***
+Nov 28 14:52:52 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Squashing the files inside the initramfs done ***
+Nov 28 14:52:52 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Creating image file '/var/lib/kdump/initramfs-5.14.0-284.36.1.el9_2.x86_64kdump.img' ***
+Nov 28 14:52:53 snonode.sno-worker-02.e2e.bos.redhat.com dracut[6239]: *** Creating initramfs image file '/var/lib/kdump/initramfs-5.14.0-284.36.1.el9_2.x86_64kdump.img' done ***
+Nov 28 14:52:53 snonode.sno-worker-02.e2e.bos.redhat.com kdumpctl[5864]: kdump: kexec: loaded kdump kernel
+Nov 28 14:52:53 snonode.sno-worker-02.e2e.bos.redhat.com kdumpctl[5864]: kdump: Starting kdump: [OK]
+Nov 28 14:52:53 snonode.sno-worker-02.e2e.bos.redhat.com systemd[1]: Finished Crash recovery kernel arming.
