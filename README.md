@@ -1,5 +1,12 @@
 # sno-ibu-measurements
 
+For detailed instructions on how to reproduce the measurements, please refer to the [Test Setup](TEST_SETUP.md) document.
+This document contains the instructions on how to setup the test environment and how to run the tests.
+It also contains the instructions on how to collect the audit logs from the SNO node that are needed for the analysis.
+
+## Methodology
+
+
 The Startup time can be fitted into 4 categories:
 
 1. Metal Startup Time (from turning on the Power until BIOS/UEFI bootloader delegates to linux kernel)
